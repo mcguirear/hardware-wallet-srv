@@ -1,0 +1,6 @@
+/venv/
+*.pyc
+.idea/
+/upload_storage/
+/temp/
+/logs/

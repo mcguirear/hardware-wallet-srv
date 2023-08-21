@@ -1,0 +1,17 @@
+
+[Unit]
+Description=nginx web service
+Documentation=http://nginx.org/en/docs/
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/data/soft/nginx/logs/nginx.pid
+ExecStartPre=/data/soft/nginx/sbin/nginx -t -c /data/soft/nginx/conf/nginx.conf
+ExecStart=/data/soft/nginx/sbin/nginx
+ExecReload=/data/soft/nginx/sbin/nginx -s reload
+ExecStop=/data/soft/nginx/sbin/nginx -s stop
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target
